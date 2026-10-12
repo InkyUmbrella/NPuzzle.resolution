@@ -2,6 +2,8 @@
 
 本文记录运行问题排查、源码编码统一和 GitHub 协作准备过程中修改或新增的文件及作用。原始课程框架没有 Git 提交历史，说明依据本次操作记录和编码转换前备份整理。
 
+本文及第三方声明现统一存放于 `docs/`；下文表格中的文件名保留首次上传时的记录，源码路径均相对仓库根目录。
+
 当前 Git 仓库根目录为内层 `NPuzzle.resolution`，实际源码位于 `WattAi/src`。算法实现仍由小组继续完成。
 
 ## 1. Java 源码中的编译修复
@@ -105,7 +107,9 @@ NPuzzle:     resources/problems.txt NPUZZLE 1 stud.g01.runner.PuzzleFeeder
 
 原有工具类的版权注释继续保留。许可证副本取自 SPDX license-list-data 的 `GPL-3.0-or-later.txt`。
 
-Git 仓库仅包含内层代码项目，课程 PDF、Word 资料、外层测试结果及本地编码备份未纳入上传内容。
+后续新增根目录 [LICENSE](../LICENSE)，采用 MIT 许可，署名为 `2026 InkyUmbrella`，适用范围为维护者有权授权的原创代码、修改和文档。第三方代码及原课程框架的授权范围见 [第三方声明](THIRD_PARTY_NOTICES.md)。
+
+首次上传的 Git 仓库仅包含内层代码项目，课程 PDF、Word 资料、外层测试结果及本地编码备份未纳入上传内容。后续将 A*、IDA* 测试用例、参考结果和测试机信息迁入 `benchmarks/`。
 
 ## 5. 验证结果与待完成工作
 

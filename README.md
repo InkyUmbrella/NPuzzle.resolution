@@ -8,7 +8,7 @@
 - PathFinding 示例可以运行，使用网格距离和欧氏距离启发函数。
 - NPuzzle 和 IDA* 仍有待实现的方法。运行 NPuzzle 时，`PuzzleFeeder.getProblems()` 返回 `null`，目前会触发空指针异常。
 
-相对原始课程框架的文件变更及作用见 [SOURCE_CHANGES.md](SOURCE_CHANGES.md)。
+相对原始课程框架的文件变更及作用见 [框架修改说明](docs/SOURCE_CHANGES.md)。参与开发前请阅读 [开发规范](docs/DEVELOPMENT.md)。
 
 ## 环境
 
@@ -72,7 +72,13 @@ WattAi/
   resources/                NPuzzle 和寻路输入数据
 .run/                       IDEA 共享运行配置
 .github/workflows/          Java 21 编译和寻路示例检查
+benchmarks/                 A*、IDA* 测试用例和参考结果
+docs/                       开发规范、框架修改说明和第三方声明
+LICENSES/                   第三方许可证原文
+LICENSE                     MIT 许可证
 ```
+
+[benchmarks/](benchmarks/) 包含 A*、IDA* 的测试用例、使用曼哈顿距离的测试结果，以及测试机信息。
 
 建议分别负责棋盘与状态转移、启发函数与 Feeder、优先队列、IDA*。先约定方法签名和状态相等规则，再通过各自分支提交 Pull Request；合并前至少确保编译和 PathFinding 检查通过。
 
@@ -80,6 +86,8 @@ WattAi/
 
 ## 来源与许可
 
-本项目基于课程提供的 SearchFramework 框架。课程 PDF、Word 资料及外层测试结果未包含在本代码仓库中。
+本项目基于课程提供的 SearchFramework 框架。测试用例、参考结果及测试机信息收录于 `benchmarks/`；其他课程 PDF、Word 资料未包含在本代码仓库中。
 
-`algs4.util` 的三个工具类保留原作者的版权和 GPL-3.0-or-later 声明，详细信息见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。课程框架未附整体许可证，本仓库未额外指定项目整体许可证。
+本仓库维护者有权授权的原创代码、修改和文档采用 [MIT 许可证](LICENSE)，版权署名为 `2026 InkyUmbrella`。
+
+`algs4.util` 的三个工具类继续适用 GPL-3.0-or-later，MIT 许可证不替代其原有条款；分发包含这些工具类的组合程序时仍需遵守适用的 GPL 要求。课程框架原有代码未附整体许可证，其授权需以原权利人的许可为准。详细信息见 [第三方声明](docs/THIRD_PARTY_NOTICES.md)。
