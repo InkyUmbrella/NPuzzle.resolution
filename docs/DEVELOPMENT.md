@@ -2,6 +2,8 @@
 
 本规范用于 NPuzzle.resolution 小组协作。项目环境、启动参数和运行命令见 [项目 README](../README.md)，原始框架调整见 [框架修改说明](SOURCE_CHANGES.md)。文中的源码路径均相对仓库根目录。
 
+成员职责、交付物和项目汇报安排见 [小组分工方案](TEAM_ASSIGNMENT.md)。
+
 ## 1. 开发环境与文件格式
 
 - 使用 JDK 21，IDEA 打开包含 `WattAi/` 的仓库根目录，将 `WattAi/src` 设为 Sources Root。

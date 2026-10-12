@@ -73,14 +73,14 @@ WattAi/
 .run/                       IDEA 共享运行配置
 .github/workflows/          Java 21 编译和寻路示例检查
 benchmarks/                 A*、IDA* 测试用例和参考结果
-docs/                       开发规范、框架修改说明和第三方声明
+docs/                       开发规范、成员分工、框架修改说明和第三方声明
 LICENSES/                   第三方许可证原文
 LICENSE                     MIT 许可证
 ```
 
 [benchmarks/](benchmarks/) 包含 A*、IDA* 的测试用例、使用曼哈顿距离的测试结果，以及测试机信息。
 
-建议分别负责棋盘与状态转移、启发函数与 Feeder、优先队列、IDA*。先约定方法签名和状态相等规则，再通过各自分支提交 Pull Request；合并前至少确保编译和 PathFinding 检查通过。
+五位成员的职责、交付物和协作安排见 [小组分工方案](docs/TEAM_ASSIGNMENT.md)，包括 A 负责项目汇报、E 负责汇报 PPT。先约定方法签名和状态相等规则，再通过各自分支提交 Pull Request；合并前至少确保编译和 PathFinding 检查通过。
 
 源码统一使用 UTF-8（无 BOM），文本文件通过 Git 统一为 LF 换行。共享 `.run`、必要的 IDEA 项目配置和模块文件；个人工作区、嵌套旧项目配置及编译输出由 `.gitignore` 排除。
 
