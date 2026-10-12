@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SearchTester - NPuzzle" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="core.runner.SearchTester" />
+    <module name="NPuzzle.resolution" />
+    <option name="PROGRAM_PARAMETERS" value="resources/problems.txt NPUZZLE 1 stud.g01.runner.PuzzleFeeder" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/WattAi" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

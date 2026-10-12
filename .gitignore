@@ -1,0 +1,28 @@
+# Build output at any level
+out/
+build/
+target/
+*.class
+*.log
+hs_err_pid*
+
+# Share only the IDEA settings needed to open this project
+/.idea/*
+!/.idea/encodings.xml
+!/.idea/misc.xml
+!/.idea/modules.xml
+/WattAi/.idea/
+/WattAi/WattAi.iml
+
+# Local editor and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*~
+
+# Local credentials
+.env
+.env.*
+!.env.example

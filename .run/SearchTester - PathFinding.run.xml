@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SearchTester - PathFinding" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="core.runner.SearchTester" />
+    <module name="NPuzzle.resolution" />
+    <option name="PROGRAM_PARAMETERS" value="resources/pathfinding.txt PATHFINDING 1 stud.runner.WalkerFeeder" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/WattAi" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

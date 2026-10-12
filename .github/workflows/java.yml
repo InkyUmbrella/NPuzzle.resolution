@@ -1,0 +1,28 @@
+name: Java CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  compile-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Compile UTF-8 sources
+        shell: bash
+        run: |
+          shopt -s globstar nullglob
+          sources=(WattAi/src/**/*.java)
+          mkdir -p out/ci
+          javac -encoding UTF-8 -d out/ci "${sources[@]}"
+      - name: Run PathFinding example
+        working-directory: WattAi
+        run: java -cp ../out/ci core.runner.SearchTester resources/pathfinding.txt PATHFINDING 1 stud.runner.WalkerFeeder
