@@ -8,7 +8,7 @@
 - PathFinding 示例可以运行，使用网格距离和欧氏距离启发函数。
 - NPuzzle 和 IDA* 仍有待实现的方法。运行 NPuzzle 时，`PuzzleFeeder.getProblems()` 返回 `null`，目前会触发空指针异常。
 
-相对原始课程框架的文件变更及作用见 [框架修改说明](docs/SOURCE_CHANGES.md)。参与开发前请阅读 [开发规范](docs/DEVELOPMENT.md)。
+相对原始课程框架的文件变更及作用见 [框架修改说明](docs/DEVELOPMENT_PREPARATION/SOURCE_CHANGES.md)。参与开发前请阅读 [开发规范](docs/DEVELOPMENT_PREPARATION/DEVELOPMENT.md)。
 
 ## 环境
 
@@ -60,27 +60,31 @@ java -cp ../out/cli core.runner.SearchTester resources/problems.txt NPUZZLE 1 st
 
 ```text
 WattAi/
-  src/algs4/util/            第三方计时和随机数工具
-  src/core/                 问题抽象、搜索框架和程序入口
-  src/stud/problem/         已实现的地图寻路问题
-  src/stud/runner/          地图寻路 Feeder
-  src/stud/queue/           框架提供的队列
-  src/stud/g01/problem/     NPuzzle 问题和棋盘，待实现
-  src/stud/g01/runner/      PuzzleFeeder，待实现
-  src/stud/g01/queue/       小组优先队列，待实现
-  src/stud/g01/solver/      IDA*，待实现
-  resources/                NPuzzle 和寻路输入数据
-.run/                       IDEA 共享运行配置
-.github/workflows/          Java 21 编译和寻路示例检查
-benchmarks/                 A*、IDA* 测试用例和参考结果
-docs/                       开发规范、成员分工、框架修改说明和第三方声明
-LICENSES/                   第三方许可证原文
-LICENSE                     MIT 许可证
+    src/algs4/util/             三方计时和随机数工具
+    src/core/                   问题抽象、搜索框架和程序入口
+    src/stud/problem/           已实现的地图寻路问题
+    src/stud/runner/            地图寻路 Feeder
+    src/stud/queue/             框架提供的队列
+    src/stud/g01/problem/       NPuzzle 问题和棋盘，待实现
+    src/stud/g01/runner/        PuzzleFeeder，待实现
+    src/stud/g01/queue/         小组优先队列，待实现
+    src/stud/g01/solver/        IDA*，待实现
+    resources/                  NPuzzle 和寻路输入数据
+.run/                           IDEA 共享运行配置
+.github/workflows/              Java 21 编译和寻路示例检查
+benchmarks/                     A*、IDA* 测试用例和参考结果
+docs/
+     COURSE_RESOURCES/          课程资源
+     DEVELOPMENT_PREPARATION/   开发规范、成员分工、框架修改说明
+     DEVELOPMENT_PROGRESSION/   开发进程声明
+     THIRD_PARTY_NOTICES.md     第三方声明
+LICENSES/                       第三方许可证原文
+LICENSE                         MIT 许可证
 ```
 
 [benchmarks/](benchmarks/) 包含 A*、IDA* 的测试用例、使用曼哈顿距离的测试结果，以及测试机信息。
 
-五位成员的职责、交付物和协作安排见 [小组分工方案](docs/TEAM_ASSIGNMENT.md)，包括 A 负责项目汇报、E 负责汇报 PPT。先约定方法签名和状态相等规则，再通过各自分支提交 Pull Request；合并前至少确保编译和 PathFinding 检查通过。
+五位成员的职责、交付物和协作安排见 [小组分工方案](docs/DEVELOPMENT_PREPARATION/TEAM_ASSIGNMENT.md)，包括 A 负责项目汇报、E 负责汇报 PPT。先约定方法签名和状态相等规则，再通过各自分支提交 Pull Request；合并前至少确保编译和 PathFinding 检查通过。
 
 源码统一使用 UTF-8（无 BOM），文本文件通过 Git 统一为 LF 换行。共享 `.run`、必要的 IDEA 项目配置和模块文件；个人工作区、嵌套旧项目配置及编译输出由 `.gitignore` 排除。
 

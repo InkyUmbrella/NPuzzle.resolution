@@ -72,12 +72,12 @@ import stud.g01.solver.IdAStar;
 
 | 文件 | 修改或保留内容 | 作用 |
 | --- | --- | --- |
-| `.idea/encodings.xml` | 将项目编码统一设为 UTF-8，移除逐文件 GBK 设置 | 避免 IDEA 继续按旧编码读取源码 |
+| `../../../.idea/encodings.xml` | 将项目编码统一设为 UTF-8，移除逐文件 GBK 设置 | 避免 IDEA 继续按旧编码读取源码 |
 | `.run/SearchTester - PathFinding.run.xml` | 新增共享 Application 配置，主类为 `core.runner.SearchTester`，工作目录为 `$PROJECT_DIR$/WattAi` | 让协作者能够直接运行已实现的寻路示例 |
 | `.run/SearchTester - NPuzzle.run.xml` | 新增共享 Application 配置，使用同一个入口和工作目录，传入 NPuzzle 参数 | 让协作者能够启动 NPuzzle 实验入口 |
-| `.idea/misc.xml` | 保留项目 JDK 21 设置 | 共享 Java 语言级别；协作者仍需选择本机 JDK |
-| `.idea/modules.xml` | 保留当前 `NPuzzle.resolution` 模块登记 | 让 IDEA 找到共享模块文件 |
-| `NPuzzle.resolution.iml` | 保留 `WattAi/src` 作为 Sources Root 的配置 | 让 IDEA 正确识别 Java 包和入口 |
+| `../../../.idea/misc.xml` | 保留项目 JDK 21 设置 | 共享 Java 语言级别；协作者仍需选择本机 JDK |
+| `../../../.idea/modules.xml` | 保留当前 `NPuzzle.resolution` 模块登记 | 让 IDEA 找到共享模块文件 |
+| `../../../NPuzzle.resolution.iml` | 保留 `WattAi/src` 作为 Sources Root 的配置 | 让 IDEA 正确识别 Java 包和入口 |
 
 两个运行配置的参数如下：
 
@@ -90,7 +90,7 @@ NPuzzle:     resources/problems.txt NPUZZLE 1 stud.g01.runner.PuzzleFeeder
 
 四个参数依次表示输入文件、问题类型、实验阶段和 Feeder 类。显式设置工作目录，是为了让 `resources/...` 相对路径正确指向输入数据。
 
-本地还同步更新了外层资料目录及 `WattAi` 旧项目的编码设置，并在外层资料项目中补齐运行配置、移除失效的源码路径。它们不属于本 Git 仓库。个人 `.idea/workspace.xml` 中保存的默认运行目标也不上传。
+本地还同步更新了外层资料目录及 `WattAi` 旧项目的编码设置，并在外层资料项目中补齐运行配置、移除失效的源码路径。它们不属于本 Git 仓库。个人 `../../../.idea/workspace.xml` 中保存的默认运行目标也不上传。
 
 ## 4. GitHub 协作准备新增文件
 
@@ -101,13 +101,13 @@ NPuzzle:     resources/problems.txt NPUZZLE 1 stud.g01.runner.PuzzleFeeder
 | `.gitattributes` | 自动识别文本文件，为 Java、XML、Markdown 等文本指定 LF 换行 |
 | `.editorconfig` | 为后续编辑约定 UTF-8、LF 和文件末尾换行 |
 | `.github/workflows/java.yml` | 在 push 和 Pull Request 时，使用 JDK 21 编译源码并运行 PathFinding 示例 |
-| `THIRD_PARTY_NOTICES.md` | 记录三个 `algs4.util` 工具类的来源、版权及 GPL-3.0-or-later 声明 |
+| `../THIRD_PARTY_NOTICES.md` | 记录三个 `algs4.util` 工具类的来源、版权及 GPL-3.0-or-later 声明 |
 | `LICENSES/GPL-3.0-or-later.txt` | 提供第三方工具类声明所引用的 GNU GPL v3 原文，不代表为整个课程项目另行指定许可证 |
 | `SOURCE_CHANGES.md` | 本修改说明，便于协作者区分框架调整与后续实验实现 |
 
 原有工具类的版权注释继续保留。许可证副本取自 SPDX license-list-data 的 `GPL-3.0-or-later.txt`。
 
-后续新增根目录 [LICENSE](../LICENSE)，采用 MIT 许可，署名为 `2026 InkyUmbrella`，适用范围为维护者有权授权的原创代码、修改和文档。第三方代码及原课程框架的授权范围见 [第三方声明](THIRD_PARTY_NOTICES.md)。
+后续新增根目录 [LICENSE](../../LICENSE)，采用 MIT 许可，署名为 `2026 InkyUmbrella`，适用范围为维护者有权授权的原创代码、修改和文档。第三方代码及原课程框架的授权范围见 [第三方声明](../THIRD_PARTY_NOTICES.md)。
 
 首次上传的 Git 仓库仅包含内层代码项目，课程 PDF、Word 资料、外层测试结果及本地编码备份未纳入上传内容。后续将 A*、IDA* 测试用例、参考结果和测试机信息迁入 `benchmarks/`。
 
