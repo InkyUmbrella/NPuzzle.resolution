@@ -4,9 +4,10 @@
 
 ## 当前状态
 
-- 全部 31 个 Java 源文件使用 UTF-8，能够编译。
+- 全部 37 个 Java 源文件使用 UTF-8，能够编译。
 - PathFinding 示例可以运行，使用网格距离和欧氏距离启发函数。
-- NPuzzle 和 IDA* 仍有待实现的方法。运行 NPuzzle 时，`PuzzleFeeder.getProblems()` 返回 `null`，目前会触发空指针异常。
+- NPuzzle 的状态表示、可解性判断（A）、搜索容器与基础启发函数（B）已实现，`PuzzleFeeder.getFrontier/getPredictor` 已接线。
+- NPuzzle 仍有待实现的方法：`PuzzleFeeder.getProblems()` 返回 `null`，`NPuzzleProblem.showSolution()` 为空，`IdAStar.search()` 返回 `null`。因此运行 NPuzzle 时目前仍会触发空指针异常。
 
 相对原始课程框架的文件变更及作用见 [框架修改说明](docs/DEVELOPMENT_PREPARATION/SOURCE_CHANGES.md)。参与开发前请阅读 [开发规范](docs/DEVELOPMENT_PREPARATION/DEVELOPMENT.md)。
 
@@ -56,6 +57,18 @@ try {
 java -cp ../out/cli core.runner.SearchTester resources/problems.txt NPUZZLE 1 stud.g01.runner.PuzzleFeeder
 ```
 
+B 模块（容器与基础启发函数）的验证程序不依赖 `PuzzleFeeder.getProblems()`，可直接运行：
+
+```powershell
+$sources = @(Get-ChildItem ./WattAi/src -Recurse -Filter '*.java' | ForEach-Object FullName)
+$sources += (Resolve-Path ./WattAi/tests/BModuleCheck.java).Path
+javac -encoding UTF-8 -d ./out/cli @sources
+if ($LASTEXITCODE -ne 0) { throw 'Compilation failed' }
+java -cp ./out/cli BModuleCheck ./WattAi/resources/problems.txt
+```
+
+第二个参数传 `all` 时额外运行 4×4 用例。详细步骤与实测数据见 [B 模块开发记录](docs/DEVELOPMENT_PROGRESSION/B_task.md)。
+
 ## 目录与分工
 
 ```text
@@ -65,10 +78,12 @@ WattAi/
     src/stud/problem/           已实现的地图寻路问题
     src/stud/runner/            地图寻路 Feeder
     src/stud/queue/             框架提供的队列
-    src/stud/g01/problem/       NPuzzle 问题和棋盘，待实现
-    src/stud/g01/runner/        PuzzleFeeder，待实现
-    src/stud/g01/queue/         小组优先队列，待实现
+    src/stud/g01/problem/       NPuzzle 问题和棋盘（已实现）
+    src/stud/g01/problem/npuzzle/heuristic/  曼哈顿、错位数、空位距离启发函数（已实现）
+    src/stud/g01/runner/        PuzzleFeeder，队列与启发函数已接线，getProblems 待实现
+    src/stud/g01/queue/         小组优先队列与 Explored 集合（已实现）
     src/stud/g01/solver/        IDA*，待实现
+    tests/                      不依赖测试框架的验证程序，B 模块见 tests/BModuleCheck.java
     resources/                  NPuzzle 和寻路输入数据
 .run/                           IDEA 共享运行配置
 .github/workflows/              Java 21 编译和寻路示例检查
